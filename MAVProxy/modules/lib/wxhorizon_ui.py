@@ -33,7 +33,7 @@ class HorizonFrame(wx.Frame):
         self.pitch = 0.0  # Degrees
         self.roll = 0.0   # Degrees
         self.yaw = 0.0    # Degrees
-        
+        self.lidar = 0.0 
         # History Values
         self.oldRoll = 0.0 # Degrees
         
@@ -216,6 +216,7 @@ class HorizonFrame(wx.Frame):
     
     def createRPYText(self):
         '''Creates the text for roll, pitch and yaw.'''
+        self.lidarText = self.axes.text(self.leftPos+(self.vertSize/10.0),-0.97+(2*self.vertSize)-(self.vertSize/10.0),'Lidar:   %.2f' % self.lidar,color='w',size=self.fontSize)
         self.rollText = self.axes.text(self.leftPos+(self.vertSize/10.0),-0.97+(2*self.vertSize)-(self.vertSize/10.0),'Roll:   %.2f' % self.roll,color='w',size=self.fontSize)
         self.pitchText = self.axes.text(self.leftPos+(self.vertSize/10.0),-0.97+self.vertSize-(0.5*self.vertSize/10.0),'Pitch: %.2f' % self.pitch,color='w',size=self.fontSize)
         self.yawText = self.axes.text(self.leftPos+(self.vertSize/10.0),-0.97,'Yaw:   %.2f' % self.yaw,color='w',size=self.fontSize)
@@ -406,6 +407,7 @@ class HorizonFrame(wx.Frame):
         self.modeText.set_size(1.5*self.fontSize)
         if self.armed:
             self.modeText.set_color('red')
+            self.modeText.set_text(self.mode . ' ARMED')
             self.modeText.set_path_effects([PathEffects.withStroke(linewidth=self.fontSize/10.0,foreground='yellow')])
         elif (self.armed == False):
             self.modeText.set_color('lightgreen')
