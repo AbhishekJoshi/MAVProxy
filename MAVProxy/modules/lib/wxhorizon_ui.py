@@ -407,7 +407,7 @@ class HorizonFrame(wx.Frame):
         self.modeText.set_size(1.5*self.fontSize)
         if self.armed:
             self.modeText.set_color('red')
-            self.modeText.set_text('ARMED')
+            self.modeText.set_text(self.mode . ' ARMED')
             self.modeText.set_path_effects([PathEffects.withStroke(linewidth=self.fontSize/10.0,foreground='yellow')])
         elif (self.armed == False):
             self.modeText.set_color('lightgreen')
