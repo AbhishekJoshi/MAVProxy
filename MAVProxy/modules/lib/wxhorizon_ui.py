@@ -31,10 +31,10 @@ class HorizonIndicator():
         app = wx.App(False)
         app.frame = HorizonFrame(state=self, title=self.title)
         app.frame.SetDoubleBuffered(True)
-        app.frame.SetSize(400, 400)  # width, height
+        app.frame.SetSize(300, 300)  # width, height
 
         # Set the position of the frame
-        self.SetPosition((0, 500))  # x, y
+        self.frame.SetPosition(0, 500)  # x, y
         app.frame.Show()
         app.MainLoop()
         self.close_event.set()   # indicate that the GUI has closed
